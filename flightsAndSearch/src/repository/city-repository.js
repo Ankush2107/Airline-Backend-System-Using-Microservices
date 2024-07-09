@@ -1,13 +1,16 @@
 const { city } = require("../models/index");
 
 class CityRepository {
-    async createCity({ name }) {
+    
+    async createCity({ name }) {    // {name = "New Delhi"}
         try {
-            const City = await city.create({ name });
-            return City;
+            const city = await city.create({ 
+                name
+            })
+            return city;
         } catch (error) {
-            console.error('Error creating city:', error);
-            throw {error}; 
+            console.error("Something went wrong", error);
+            throw {error};
         }
     }
 
@@ -18,11 +21,37 @@ class CityRepository {
                     id: cityId
                 }
             })
+            return true;
         } catch (error) {
-            console.error('Error deleting city:', error);
-            throw {error}; 
+            console.error("Something went wrong", error);
+            throw {error};
         }
     }
+
+    async updateCity(cityId, data) {
+        try {
+            const city = await city.update(data, {
+                where: {
+                    id: cityId
+                }
+            })
+            return city;
+        } catch (error) {
+            console.error("Something went wrong", error);
+            throw {error};
+        }
+    }
+
+    async getCity(cityId) {
+        try {
+            const city = await city.findByPk(cityId);
+            return city;
+        } catch (error) {
+            console.error("Something went wrong", error);
+            throw {error};
+        }
+    }
+
 }
 
 module.exports = CityRepository;
