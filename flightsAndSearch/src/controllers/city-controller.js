@@ -16,7 +16,7 @@ const create = async (req, res) => {
             success: true,
             message: "Successfully created a city",
             err: {}
-        });
+        }); 
     } catch (error) {
         console.log(error);
         return res.status(500).json({
@@ -79,7 +79,8 @@ const get = async (req, res) => {
 }
 
 /**
- * PATCH -> /city/:id -> req.body
+ * url -> -> /city/:id
+ * PATCH -> req.body
  */
 const update = async (req, res) => {
     try {

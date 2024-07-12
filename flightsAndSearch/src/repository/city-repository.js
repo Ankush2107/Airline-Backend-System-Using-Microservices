@@ -4,10 +4,10 @@ class CityRepository {
     
     async createCity({ name }) {    // {name = "New Delhi"}
         try {
-            const city = await city.create({ 
+            const City = await city.create({ 
                 name
             })
-            return city;
+            return City;
         } catch (error) {
             console.error("Something went wrong at repository layer", error);
             throw {error};
@@ -30,12 +30,12 @@ class CityRepository {
 
     async updateCity(cityId, data) {
         try {
-            const city = await city.update(data, {
+            const City = await city.update(data, {
                 where: {
                     id: cityId
                 }
             })
-            return city;
+            return City;
         } catch (error) {
             console.error("Something went wrong at repository layer", error);
             throw {error};
@@ -44,8 +44,8 @@ class CityRepository {
 
     async getCity(cityId) {
         try {
-            const city = await city.findByPk(cityId);
-            return city;
+            const City = await city.findByPk(cityId);
+            return City;
         } catch (error) {
             console.error("Something went wrong at repository layer", error);
             throw {error};
