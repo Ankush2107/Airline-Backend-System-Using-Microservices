@@ -81,7 +81,8 @@ const get = async (req, res) => {
 /**
  * url -> -> /city/:id
  * PATCH -> req.body
- */
+*/
+
 const update = async (req, res) => {
     try {
         const response = await cityService.updateCity(req.params.id, req.body);
@@ -99,7 +100,7 @@ const update = async (req, res) => {
             message: "Not able to update the city",
             err: error
         });
-    }
+    } 
 }
 
 module.exports = {
