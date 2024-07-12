@@ -9,7 +9,7 @@ class CityRepository {
             })
             return city;
         } catch (error) {
-            console.error("Something went wrong", error);
+            console.error("Something went wrong at repository layer", error);
             throw {error};
         }
     }
@@ -23,7 +23,7 @@ class CityRepository {
             })
             return true;
         } catch (error) {
-            console.error("Something went wrong", error);
+            console.error("Something went wrong at repository layer", error);
             throw {error};
         }
     }
@@ -37,7 +37,7 @@ class CityRepository {
             })
             return city;
         } catch (error) {
-            console.error("Something went wrong", error);
+            console.error("Something went wrong at repository layer", error);
             throw {error};
         }
     }
@@ -47,7 +47,7 @@ class CityRepository {
             const city = await city.findByPk(cityId);
             return city;
         } catch (error) {
-            console.error("Something went wrong", error);
+            console.error("Something went wrong at repository layer", error);
             throw {error};
         }
     }
