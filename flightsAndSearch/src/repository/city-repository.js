@@ -59,7 +59,7 @@ class CityRepository {
         }
     }
 
-    async getAllCities(filter) {     // filter can be empty also.
+    async getAllCities(filter) {   // filter can be empty also
         try {
             if(filter.name) {
                 const cities = await city.findAll({
@@ -68,7 +68,7 @@ class CityRepository {
                             [Op.startsWith]: filter.name
                         }
                     }
-                })
+                });
                 return cities;
             }
             const cities = await city.findAll();

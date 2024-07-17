@@ -89,7 +89,7 @@ const getAll = async (req, res) => {
         return res.status(200).json({
             data: cities,
             success: true,
-            message: "Successfully fetched all cities",
+            message: "Successfully fetched cities",
             err: {}
         });
     } catch (error) {
@@ -97,10 +97,10 @@ const getAll = async (req, res) => {
         return res.status(500).json({
             data: {},
             success: false,
-            message: "Not able to fetch all the cities",
+            message: "Not able to get all the cities",
             err: error
         });
-    } 
+    }
 }
 
 /**
