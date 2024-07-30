@@ -11,7 +11,7 @@ class CrudRepository {
         } catch (error) {
             console.log("Something went wrong in crud repository");
             throw {error}
-        }
+        } 
     }
 
     async destroy(modelId) {
