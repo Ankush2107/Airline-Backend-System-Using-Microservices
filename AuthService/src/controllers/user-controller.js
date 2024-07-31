@@ -1,10 +1,10 @@
 const UserService = require("../services/user-service");
 
-const userServuce = new UserService();
+const userService = new UserService();
 
 const create = async (req, res) => {
     try {
-        const response = await userServuce.create({
+        const response = await userService.create({
             email: req.body.email,
             password: req.body.password
         });
@@ -17,7 +17,7 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         return res.status(500).json({
-            message: 'Something went wrong',
+            message: 'Not able to create a user',  
             data: {},
             success: false,
             err: error
