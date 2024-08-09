@@ -19,6 +19,14 @@ class BookingRepository {
             );
         }
     }
+
+    async update(data) {
+        try {
+            
+        } catch (error) {
+            
+        }
+    }
 } 
 
 module.exports = BookingRepository;
