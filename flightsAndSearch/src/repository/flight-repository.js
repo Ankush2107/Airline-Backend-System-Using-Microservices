@@ -2,7 +2,6 @@ const { Flights } = require("../models/index");
 const { Op } = require("sequelize");
 
 class FlightRepository {
-  
   #createFilter(data) {
     let filter = {};
     if (data.arrivalAirportId) {
@@ -12,16 +11,14 @@ class FlightRepository {
       filter.departureAirportId = data.departureAirportId;
     }
     let priceFilter = [];
-    
-    if(data.minPrice) {
-       
-        priceFilter.push({price: {[Op.gte]: data.minPrice}});
+
+    if (data.minPrice) {
+      priceFilter.push({ price: { [Op.gte]: data.minPrice } });
     }
-    if(data.maxPrice) {
-    
-        priceFilter.push({price: {[Op.lte]: data.maxPrice}});
+    if (data.maxPrice) {
+      priceFilter.push({ price: { [Op.lte]: data.maxPrice } });
     }
-    Object.assign(filter, {[Op.and]: priceFilter});
+    Object.assign(filter, { [Op.and]: priceFilter });
     console.log(filter);
     return filter;
   }
@@ -53,6 +50,20 @@ class FlightRepository {
         where: flightObject,
       });
       return flight;
+    } catch (error) {
+      console.error("Something went wrong at repository layer", error);
+      throw { error };
+    }
+  }
+
+  async updateFlight(flightId, data) {
+    try {
+      await Flights.update(data, {
+        where: {
+          id: flightId,
+        },
+      });
+      return true;
     } catch (error) {
       console.error("Something went wrong at repository layer", error);
       throw { error };

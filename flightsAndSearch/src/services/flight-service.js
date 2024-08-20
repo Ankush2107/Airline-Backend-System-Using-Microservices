@@ -6,7 +6,7 @@ class FlightService {
     constructor() {
         this.airplaneRepository = new AirplaneRepository();
         this.flightsRepository = new FlightRepository();
-    }
+    };
 
     async createFlight(data) {
         try {
@@ -22,7 +22,7 @@ class FlightService {
             console.error("Something went wrong at service layer", error);
             throw {error};
         }
-    }
+    };
 
     async getAllFlightData(data) {
         try {
@@ -32,9 +32,31 @@ class FlightService {
             console.error("Something went wrong at service layer", error);
             throw {error};
         }
-    }
+    };
+
+    async getFlight(flightId) {
+        try {
+            const flight = await this.flightsRepository.getFlight(flightId);
+            return flight;
+        } catch (error) {
+            console.error("Something went wrong at service layer", error);
+            throw {error};
+        }
+    };
+
+    async updateFlight(flightId, data) {
+        try {
+            const response = await this.flightsRepository.updateFlight(flightId, data);
+            return response;
+        } catch (error) {
+            console.error("Something went wrong at service layer", error);
+            throw {error};
+        }
+    };
+
+    
  
-} 
+}; 
 
 module.exports = FlightService;
 
