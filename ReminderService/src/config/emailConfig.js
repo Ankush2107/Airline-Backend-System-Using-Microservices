@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 const { EMAIL_ID, EMAIL_PASSWORD } = require('./serverConfig.js');
-console.log(EMAIL_ID, EMAIL_PASSWORD);
+// console.log(EMAIL_ID, EMAIL_PASSWORD);
 
 const sender = nodemailer.createTransport({
     service: 'Gmail',
